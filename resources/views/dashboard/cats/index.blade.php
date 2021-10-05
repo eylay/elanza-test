@@ -8,20 +8,20 @@
         </a>
     </div>
     <hr>
-    @if ($mainCats->count())
-        <div id="all-cats">
+    <div id="all-cats">
+        @if ($mainCats->count())
             @foreach ($mainCats as $cat)
                 {{-- برای جلوگیری از تکرار کد از اینکلود استفاده شده. چرا که این قسمت در هنگام ارسال ایجکس ریکوست نیز مورد نیاز است --}}
                 <div class="cat-container">
                     @include('dashboard.cats.card')
                 </div>
             @endforeach
-        </div>
-    @else
-        <div class="alert alert-warning" role="alert">
-            هنوز هیچ دسته بندی تعریف نشده.
-        </div>
-    @endif
+        @else
+            <div class="alert alert-warning" id="no-cat" role="alert">
+                هنوز هیچ دسته بندی تعریف نشده.
+            </div>
+        @endif
+    </div>
 
 
     <!-- New Category Modal -->

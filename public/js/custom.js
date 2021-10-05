@@ -70,7 +70,6 @@ $(document).on('submit', '#store-cat, #update-cat', function (e) {
         },
         success : function (result) {
             var catToUpdateDOM = $('#all-cats').attr('data-current-cat');
-            console.log(catToUpdateDOM);
             if (catToUpdateDOM) {
                 // update DOM
                 var catCard = $('#all-cats').find(`.cat-container .cat-card[data-cat-id=${catToUpdateDOM}]`);
@@ -86,6 +85,7 @@ $(document).on('submit', '#store-cat, #update-cat', function (e) {
             }
             $('#new-cat').modal('hide');
             $('#edit-cat').modal('hide');
+            $('#no-cat').remove();
         }
     });
 });

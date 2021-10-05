@@ -28,7 +28,7 @@
                                             <h4 class="sub-cat"> <a href="#">{{$subCat->title}}</a> </h4>
                                             @if ($subCat->subs->count())
                                                 <ul class="final-ul">
-                                                    @foreach ($mainCat->subs as $finalCat)
+                                                    @foreach ($subCat->subs as $finalCat)
                                                         <li> <a href="#"> {{$finalCat->title}} </a> </li>
                                                     @endforeach
                                                 </ul>
