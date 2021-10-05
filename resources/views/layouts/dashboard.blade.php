@@ -13,7 +13,7 @@
         {{-- top navbar --}}
         <nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{url('/')}}">Elanza</a>
+                <a class="navbar-brand" href="{{url('/')}}"> صفحه اصلی  وبسایت</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -28,6 +28,14 @@
                             <a class="nav-link @if(request()->route()->getName() == 'cats.index') active @endif" href="{{route('cats.index')}}">
                                 مدیریت دسته بندی ها
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <form class="d-inline" action="{{route('logout')}}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-link nav-link">
+                                    خروج
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>

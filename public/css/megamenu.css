@@ -1,0 +1,63 @@
+.megamenu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 25px;
+    position: relative;
+}
+
+.megamenu > li {
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.megamenu > li:hover {
+    font-weight: bold;
+}
+
+.megamenu .dropdown {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 70px;
+    background-color: #f1f1f1;
+    padding: 25px 50px;
+    min-height: 250px;
+    display: none;
+}
+
+.megamenu .dropdown .menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.megamenu .dropdown p {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: #a4a4a4;
+}
+
+.megamenu > li:hover + .dropdown, .megamenu .dropdown:hover {
+    display: block;
+}
+
+.megamenu a {
+    text-decoration: none;
+}
+
+.megamenu .final-ul {
+    padding: 0;
+    list-style: none;
+}
+
+.megamenu .final-ul > li {
+    padding: 5px 0;
+}
+
+.megamenu .final-ul a {
+    color: #343434;
+}
+.megamenu .final-ul a:hover, .sub-cat a:hover {
+    font-weight: bold;
+}
