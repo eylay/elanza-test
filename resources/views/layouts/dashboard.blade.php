@@ -3,13 +3,15 @@
     <head>
         <meta charset="utf-8">
         <title> داشبورد </title>
+        <meta name="csrf" content="{{csrf_token()}}">
 
         <link rel="stylesheet" href="{{asset('vendor/bootstrap/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        {{-- top navbar --}}
+        <nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{url('/')}}">Elanza</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -33,9 +35,33 @@
         </nav>
 
         <div class="container py-5">
+
+            {{-- display laravel validation errors if any --}}
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="m-0">
+                        @foreach ($errors->all() as $err)
+                            <li> {{$err}} </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            {{-- display success messages --}}
+            @if (session('success'))
+                <div class="alert alert-success">
+                    تغییرات با موفقیت ذخیره شد.
+                </div>
+            @endif
+
+            {{-- yield content --}}
             @yield('content')
+
         </div>
 
+        <script src="{{asset('vendor/sweat-alert/swal.min.js')}}"></script>
+        <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{asset('vendor/bootstrap/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{asset('js/custom.js')}}"></script>
     </body>
 </html>

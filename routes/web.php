@@ -23,4 +23,5 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('cats', 'CategoryController');
+Route::resource('cats', 'CategoryController')->only(['index', 'store', 'update', 'destroy']);
+Route::get('cats/subs/{cat}', 'CategoryController@getSubs')->name('cats.subs');
